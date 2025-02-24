@@ -1,8 +1,8 @@
-import {store} from "../cofigureStore/store.js";
-import {useSyncExternalStore} from "react";
+
+import {useSelector} from "react-redux";
 
 const Balance = () => {
-    const {balance} = useSyncExternalStore(store.subscribe, store.getState);
+    const balance = useSelector(state => state.balance);
     return (
         <div>
             <h1>Iron Bank of Braavos</h1>
