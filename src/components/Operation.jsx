@@ -1,11 +1,14 @@
 import {useState} from "react";
 import {deposit, withdraw} from "../actions/accountActions.js";
 import {useDispatch} from "react-redux";
+import {fetchQuote} from "../actions/quoteAction.js";
 
 const Operation = () => {
     const [sum, setSum] = useState(0);
     const dispatch = useDispatch();
+
     return (
+        <>
         <div className={'flex justify-center'}>
             <button
                 className={'bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg rounded-lg py-2 px-4'}
@@ -18,6 +21,13 @@ const Operation = () => {
                 className={'bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg rounded-lg py-2 px-4'}
                 onClick={() => dispatch(deposit(sum))}>Deposit</button>
         </div>
+            <div className={'flex justify-center'}>
+                <button
+                onClick={() => dispatch(fetchQuote())}
+                className={'bg-blue-300 hover:bg-blue-400 text-white font-bold text-lg rounded-lg py-2 px-9 ml-7 mt-1'}>
+                    Get Quote</button>
+            </div>
+        </>
     );
 };
 
