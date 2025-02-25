@@ -6,11 +6,17 @@ const Operation = () => {
     const [sum, setSum] = useState(0);
     const dispatch = useDispatch();
     return (
-        <div>
-            <button onClick={() => dispatch(withdraw(sum))}>Withdraw</button>
-            <input type={'number'} onChange={e =>setSum(+e.target.value)}
+        <div className={'flex justify-center'}>
+            <button
+                className={'bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg rounded-lg py-2 px-4'}
+                onClick={() => dispatch(withdraw(sum))}>Withdraw</button>
+            <input
+                className={'text-center text-white border rounded-lg'}
+                type={'number'} onChange={e =>setSum(+e.target.value)}
             value={sum}/>
-            <button onClick={() => dispatch(deposit(sum))}>Deposit</button>
+            <button
+                className={'bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg rounded-lg py-2 px-4'}
+                onClick={() => dispatch(deposit(sum))}>Deposit</button>
         </div>
     );
 };
